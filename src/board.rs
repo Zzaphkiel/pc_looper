@@ -2,9 +2,9 @@
 
 /// This mod implements the rules of Tetris game to move, place, or rotate a piece.
 
-/// In this part, the most of code references Wirelyre's code:
+/// In this mod, the most of code references Wirelyre's code:
 /// https://github.com/wirelyre/tetra-tools/blob/main/basic/src/gameplay.rs
-/// A thousand thanks to Wirelyre.
+/// You can click the url above to get English comment. A thousand thanks to Wirelyre.
 
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub struct Board(pub u64);
