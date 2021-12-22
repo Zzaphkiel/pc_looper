@@ -339,7 +339,7 @@ impl Piece {
     pub fn ccw(self, board: Board) -> Piece {
         let rotation = self.rotation.ccw();
 
-        let kicks = &KICKS[self.shape as usize][3 - self.rotation as usize];
+        let kicks = &KICKS[self.shape as usize][(self.rotation as usize + 3) % 4];
         for (kick_col, kick_row) in kicks {
             let new = Piece {
                 shape: self.shape,
@@ -349,6 +349,7 @@ impl Piece {
             };
 
             if new.in_bounds() && !new.collides_in(board) {
+                // println!("check col: {}, check row: {}", kick_col, kick_row);
                 return new;
             }
         }

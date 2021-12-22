@@ -145,4 +145,11 @@ fn main() {
             BoardEvent::Exit => break,
         }
     }
+
+    // let board = Board(0b1111101111_1111000111_1111111111_1111111111);
+    // for (new_piece, _) in place::PiecePlacer::new(board, Shape::T) {
+    //     println!("{:?}", new_piece);
+
+    //     print_pieces(board, &vec![new_piece], 0);
+    // }
 }
