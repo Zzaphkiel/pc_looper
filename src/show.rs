@@ -2,11 +2,6 @@ use crate::board::{Board, Piece};
 use colored::Colorize;
 
 pub fn print_pieces(board: Board, pieces: &Vec<Piece>, lines: usize) {
-    // if pieces.is_empty() {
-    //     println!("No Solution.");
-    //     return;
-    // }
-
     let mut temp = vec!['-'; 50];
     let mut b = board.0 & crate::board::BOARD_MASK;
 
@@ -64,7 +59,7 @@ pub fn print_pieces(board: Board, pieces: &Vec<Piece>, lines: usize) {
         first = false;
     }
     for _ in 0..lines {
-        println!("");
+        println!("{}", "                    ".on_truecolor(0, 0, 0));
     }
 
     for i in (lines..4).rev() {

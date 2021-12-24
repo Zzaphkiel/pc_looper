@@ -9,6 +9,7 @@ extern crate process_memory;
 extern crate winapi;
 
 use board::{Board, Piece, Shape};
+use crossterm::cursor;
 use ppt::{get_pid, Ppt};
 use process_memory::*;
 use search::search_pc;
@@ -124,20 +125,24 @@ fn main() {
     thread::spawn(move || read_from_ppt(board_send, ppt_pid));
 
     let mut prev_solution: Vec<Piece> = vec![];
+
+    let _ = Command::new("cmd.exe").arg("/c").arg("cls").status();
     loop {
         match board_recv.recv().unwrap() {
             BoardEvent::Continue(bit_board, current_piece, queue, hold) => {
                 if !bit_board.is_empty() && !prev_solution.is_empty() {
                     prev_solution.remove(0);
                     if let Some(i) = bit_board.soln_can_pc(&prev_solution) {
-                        let _ = Command::new("cmd.exe").arg("/c").arg("cls").status();
+                        // let _ = Command::new("cmd.exe").arg("/c").arg("cls").status();
+                        let _ = cursor().goto(0, 0);
                         print_pieces(bit_board.add_lines(i), &prev_solution, i);
                         continue;
                     }
                 }
 
                 let res = search_pc(bit_board, current_piece, queue, hold);
-                let _ = Command::new("cmd.exe").arg("/c").arg("cls").status();
+                // let _ = Command::new("cmd.exe").arg("/c").arg("cls").status();
+                let _ = cursor().goto(0, 0);
                 print_pieces(bit_board.add_lines(res.1), &res.0, res.1);
                 prev_solution = res.0;
             }
