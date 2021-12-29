@@ -1,13 +1,13 @@
 # pc_looper
 A 12next perfect clear finder for PuyoPuyo Tetris
 
-一个读 12next 用于找 perfect clear 的 AI
+一个基于最佳优先搜索实现的，读 12next 用于找 perfect clear 的 AI
 
 <br/>
 
-Please don't ues it in online mod!
+Please don't ues it in PvP game mod!
 
-请不要在PvP模式中使用！
+仅为学习，请不要在PvP模式中使用！
 
 <br/> 
 使用 terminal 打开就不会乱码~
@@ -20,6 +20,7 @@ Please don't ues it in online mod!
 新增：
 + 搜索时的剪枝判断实现。
 + 启发函数的实现。
++ 修复了旋转方块时的bug。
 
 ## place.rs
 参考 <https://github.com/wirelyre/tetra-tools/blob/main/basic/src/piece_placer.rs>
@@ -40,4 +41,4 @@ Please don't ues it in online mod!
 
 ## show.rs
 实现：
-+ 展示结果
++ 输出结果
