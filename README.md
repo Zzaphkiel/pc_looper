@@ -3,10 +3,14 @@ A 12next perfect clear finder for PuyoPuyo Tetris
 
 一个读 12next 用于找 perfect clear 的 AI
 
+<br/>
 
 Please don't ues it in online mod!
 
 请不要在PvP模式中使用！
+
+<br/> 
+使用 terminal 打开就不会乱码~
 
 ## board.rs
 参考 <https://github.com/wirelyre/tetra-tools/blob/main/basic/src/gameplay.rs>
